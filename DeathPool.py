@@ -21,7 +21,7 @@ initialize_pool(18)
 pd.read_csv(csv_file_path).head()
 
 
-#Enter Player Names player pool locked for 2023 season uncomment for next year to add players
+#Enter Player Names player_pool locked for 2023season uncomment next year to add players
 #def add_player(player_name):
 
 #    with open(csv_file_path, 'a', newline='') as csvfile:
@@ -88,7 +88,8 @@ for index, row in player_list_df.iterrows():
 
         # Add player information to CSV
 
-        csvwriter.writerow([player_name, status] + [week1_pick, week2_pick] + ['' for _ in range(16)])
+        csvwriter.writerow([player_name, status] + [week1_pick, week2_pick] + [''\
+            for _ in range(16)])
 
 
 
@@ -167,7 +168,17 @@ initialize_weekly_game_outcome()
 # Show the first few lines of the initialized CSV to confirm its structure
 pd.read_csv(weekly_game_outcome_csv_file_path).head()
 
-#Show Picks of all players for current week
+#Current status of all players
+def display_current_status():
+    # Load the current CSV into a DataFrame
+    df = pd.read_csv(csv_file_path)
+    
+    # Display the DataFrame for review
+    return df
+
+# Test the function to display the current status of all players in the pool
+display_current_status().head(10)
+
 
 #Show Picks of all players for all weeks
 
