@@ -4,8 +4,10 @@ import csv
 import os
 import pandas as pd
 # Initialize file path
-csv_file_path = '/mnt/data/FootballDeathPool.csv'
-
+csv_file_path = './data/FootballDeathPool.csv'
+player_list_path = './data/PlayerList.csv'
+player_list_df = pd.read_csv('./data/PlayerList.csv')
+# Initialize the pool
 def initialize_pool(weeks):
     # Create CSV file and write headers
     if not os.path.exists(csv_file_path):
@@ -152,7 +154,7 @@ pd.read_csv(csv_file_path).head(10)
 #Player Eliminated
 
 #Initialize WeeklyGameOutcome.csv with headers
-weekly_game_outcome_csv_file_path = '/mnt/data/WeeklyGameOutcome.csv'
+weekly_game_outcome_csv_file_path = './data/WeeklyGameOutcome.csv'
 
 def initialize_weekly_game_outcome(weeks):
     # Create CSV file and write headers
