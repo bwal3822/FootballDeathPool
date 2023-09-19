@@ -164,6 +164,7 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
+   print(player_list_df.columns)
 current_week = 2 # Change to current week
 
 # Call check_elimination
