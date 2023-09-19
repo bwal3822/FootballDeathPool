@@ -165,7 +165,7 @@ def initialize_weekly_game_outcome(weeks):
             csvwriter.writerow(headers)
 
 #initialize the WeeklyGameOutcome.csv file
-initialize_weekly_game_outcome()
+initialize_weekly_game_outcome(18)
 
 # Show the first few lines of the initialized CSV to confirm its structure
 pd.read_csv(weekly_game_outcome_csv_file_path).head()
