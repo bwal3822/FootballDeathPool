@@ -22,6 +22,9 @@ initialize_pool(18)
 # Weekly Game Outcome Path
 weely_outcome_file_path = './data/WeeklyGameOutcome.csv'
 
+# Initialize or load weekly_game_outcome_df
+weekly_game_outcome_df = pd.read_csv('./data/WeeklyGameOutcome.csv')
+
 # Show the first few lines of the initialized CSV to confirm its structure
 pd.read_csv(csv_file_path).head()
 
@@ -152,7 +155,11 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
+current_week = 3 # Assuming we are in Week 3
 
+# Call check_elimination
+updated_player_list_df = check_elimination\
+    (player_list_df, weekly_game_outcome_df, current_week)
 # Test the function with some sample game outcomes for Week 3
 # Assuming Rams won and Bills lost in Week 3
 sample_game_outcomes_week3 = {'Rams': 'Win', 'Bills': 'Lose'}
