@@ -174,12 +174,16 @@ pd.read_csv(csv_file_path).head(10)
 weekly_game_outcome_csv_file_path = './data/WeeklyGameOutcome.csv'
 
 def initialize_weekly_outcome():
-    # Create CSV file and write headers
-    if not os.path.exists(weekly_game_outcome_csv_file_path):
-        with open(weekly_game_outcome_csv_file_path, 'w', newline='') as csvfile:
-            csvwriter = csv.writer(csvfile)
-            headers = ['Week', 'Team', 'Opponent','Score','Outcome']
-            csvwriter.writerow(headers)
+    print("Initializing weekly outcome...")  # Debugging print statement
+    try:
+        if not os.path.exists(weekly_game_outcome_csv_file_path):
+            with open(weekly_game_outcome_csv_file_path, 'w', newline='') as csvfile:
+                csvwriter = csv.writer(csvfile)
+                headers = ['Week', 'Team', 'Opponent', 'Score', 'Outcome']
+                csvwriter.writerow(headers)
+        print("Weekly outcome initialized successfully.")  # Debugging print statement
+    except Exception as e:
+        print(f"An error occurred: {e}")  # Debugging print statement
 
 initialize_weekly_outcome()
 
