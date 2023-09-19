@@ -1,5 +1,5 @@
 # Football Death Pool
-from calendar import week
+
 import csv
 import os
 import pandas as pd
@@ -18,6 +18,9 @@ def initialize_pool(weeks):
 
 # Assuming an 18-week NFL season
 initialize_pool(18)
+
+# Weekly Game Outcome Path
+weely_outcome_file_path = './data/WeeklyGameOutcome.csv'
 
 # Show the first few lines of the initialized CSV to confirm its structure
 pd.read_csv(csv_file_path).head()
@@ -156,16 +159,17 @@ pd.read_csv(csv_file_path).head(10)
 #Initialize WeeklyGameOutcome.csv with headers
 weekly_game_outcome_csv_file_path = './data/WeeklyGameOutcome.csv'
 
-def initialize_weekly_game_outcome(weeks):
+def initialize_weekly_outcome():
     # Create CSV file and write headers
     if not os.path.exists(weekly_game_outcome_csv_file_path):
         with open(weekly_game_outcome_csv_file_path, 'w', newline='') as csvfile:
             csvwriter = csv.writer(csvfile)
-            headers = ['Week'] + [f"Game {i+1}" for i in range(weeks)]
+            headers = ['Week', 'Team', 'Outcome']
             csvwriter.writerow(headers)
 
-#initialize the WeeklyGameOutcome.csv file
-initialize_weekly_game_outcome(18)
+initialize_weekly_outcome()
+
+
 
 # Show the first few lines of the initialized CSV to confirm its structure
 pd.read_csv(weekly_game_outcome_csv_file_path).head()
