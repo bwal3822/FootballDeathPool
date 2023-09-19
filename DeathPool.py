@@ -124,27 +124,34 @@ df.to_csv(csv_file_path, index=False)
 pd.read_csv(csv_file_path).head(10)
 
 #Enter Game Results
-def check_elimination(week, game_outcomes):
-    # Load the current CSV into a DataFrame
-    df = pd.read_csv(csv_file_path)
+def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
+    for index, row in player_list_df.iterrows():
+        if row['Status'] == 'Active':
+            player_pick = row[str(current_week)]
+            outcome_row = weekly_game_outcome_df[(weekly_game_outcome_df['Week']\
+                                                   == current_week) & \
+                                                    (weekly_game_outcome_df['Team']\
+                                                      == player_pick)]
+            
+            # If the team picked by the player is found in the weekly outcome data
+            if not outcome_row.empty:
+                recorded_outcome = outcome_row['Outcome'].values[0]
+                score = outcome_row['Score'].values[0]
+                team_score, opponent_score = map(int, score.split('-'))
+                
+                # Validate the Outcome based on the Score
+                if team_score > opponent_score and recorded_outcome == 'Win':
+                    continue  # Player moves to the next week
+                elif team_score < opponent_score and recorded_outcome == 'Lose':
+                    player_list_df.at[index, 'Status'] = 'Eliminated'
+                else:
+                    print(f"Discrepancy found for {player_pick} in week {current_week}.\
+                           Please double-check the data.")
+            else:
+                print(f"Data not found for {player_pick} in week {current_week}.")
     
-    # Iterate through each player to check for elimination
-    for index, row in df.iterrows():
-        player_name = row['Player']
-        player_status = row['Status']
-        player_pick = row[f"Week {week}"]
-        
-        # Skip if the player is already eliminated
-        if player_status == 'eliminated':
-            continue
-        
-        # Update status if the player's pick lost
-        if game_outcomes.get(player_pick) == 'Lose':
-            df.loc[index, 'Status'] = 'eliminated'
-            df.loc[index, f"Week {week+1}:"] = 'Eliminated'
-    
-    # Save the updated DataFrame back to the CSV
-    df.to_csv(csv_file_path, index=False)
+    player_list_df.to_csv(csv_file_path, index=False)
+    return player_list_df
 
 # Test the function with some sample game outcomes for Week 3
 # Assuming Rams won and Bills lost in Week 3
@@ -164,7 +171,7 @@ def initialize_weekly_outcome():
     if not os.path.exists(weekly_game_outcome_csv_file_path):
         with open(weekly_game_outcome_csv_file_path, 'w', newline='') as csvfile:
             csvwriter = csv.writer(csvfile)
-            headers = ['Week', 'Team', 'Outcome']
+            headers = ['Week', 'Team', 'Opponent','Score','Outcome']
             csvwriter.writerow(headers)
 
 initialize_weekly_outcome()
