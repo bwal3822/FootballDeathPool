@@ -5,8 +5,8 @@ import os
 import pandas as pd
 # Initialize file path
 csv_file_path = './data/FootballDeathPool.csv'
-player_list_path = './data/PlayerList.csv'
-player_list_df = pd.read_csv('./data/PlayerList.csv')
+player_list_path = './data/PlayerList.xlsx'
+player_list_df = pd.read_excel(player_list_path)
 # Initialize the pool
 def initialize_pool(weeks):
     # Create CSV file and write headers
