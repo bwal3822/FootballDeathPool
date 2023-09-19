@@ -128,30 +128,30 @@ pd.read_csv(csv_file_path).head(10)
 
 #Enter Game Results
 def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
+    # Inside check_elimination function
     for index, row in player_list_df.iterrows():
         if row['Status'] == 'Active':
             player_pick = row[str(current_week)]
-            outcome_row = weekly_game_outcome_df[(weekly_game_outcome_df['Week']\
-                                                   == current_week) & \
-                                                    (weekly_game_outcome_df['Team']\
-                                                      == player_pick)]
+        outcome_row = weekly_game_outcome_df[(weekly_game_outcome_df['Week']\
+                 == current_week) & (weekly_game_outcome_df['Team'] == player_pick)]
+        
+        # If the team picked by the player is found in the weekly outcome data
+        if not outcome_row.empty:
+            recorded_outcome = outcome_row['Outcome'].values[0]
             
-            # If the team picked by the player is found in the weekly outcome data
-            if not outcome_row.empty:
-                recorded_outcome = outcome_row['Outcome'].values[0]
-                score = outcome_row['Score'].values[0]
-                team_score, opponent_score = map(int, score.split('-'))
-                
-                # Validate the Outcome based on the Score
-                if team_score > opponent_score and recorded_outcome == 'Win':
-                    continue  # Player moves to the next week
-                elif team_score < opponent_score and recorded_outcome == 'Lose':
-                    player_list_df.at[index, 'Status'] = 'Eliminated'
-                else:
-                    print(f"Discrepancy found for {player_pick} in week {current_week}.\
-                           Please double-check the data.")
+            # Replace this part
+            team_score = outcome_row['Team_Score'].values[0]
+            opponent_score = outcome_row['Opponent_Score'].values[0]
+            
+            # Validate the Outcome based on the Team_Score and Opponent_Score
+            if team_score > opponent_score and recorded_outcome == 'Win':
+                continue  # Player moves to the next week
+            elif team_score < opponent_score and recorded_outcome == 'Lose':
+                player_list_df.at[index, 'Status'] = 'Eliminated'
             else:
-                print(f"Data not found for {player_pick} in week {current_week}.")
+                print(f"Discrepancy found for {player_pick} in week\
+                       {current_week}. Please double-check the data.")
+
     
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
@@ -179,7 +179,8 @@ def initialize_weekly_outcome():
         if not os.path.exists(weekly_game_outcome_csv_file_path):
             with open(weekly_game_outcome_csv_file_path, 'w', newline='') as csvfile:
                 csvwriter = csv.writer(csvfile)
-                headers = ['Week', 'Team', 'Opponent', 'Score', 'Outcome']
+                headers = ['Week', 'Team', 'Team_Score','Opponent','Opponent_Score',\
+                            'Outcome']
                 csvwriter.writerow(headers)
         print("Weekly outcome initialized successfully.")  # Debugging print statement
     except Exception as e:
