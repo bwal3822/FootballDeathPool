@@ -57,9 +57,14 @@ pd.read_csv(csv_file_path).head()
 
 #Add existiong players to the pool
 
-# Rename columns for easier access
+# First, check the actual number of columns in the DataFrame
+num_columns = len(player_list_df.columns)
 
-player_list_df.columns = ['Player', 'Week1', 'Week2', 'Week3']
+# Now, rename the first few columns and keep the remaining columns as they are
+new_columns = ['Player', 'Week1', 'Week2', 'Week3'] + [f"ExtraCol{i}" \
+                for i in range(4, num_columns)]
+player_list_df.columns = new_columns
+
 
 
 
