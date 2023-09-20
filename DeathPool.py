@@ -119,12 +119,12 @@ pd.read_csv(csv_file_path).head()
 df = pd.read_csv(csv_file_path)
 
 # Update the status and picks for players eliminated in Week 1 and Week 2
-for player in eliminated_week1:
+'''for player in eliminated_week1:
     df.loc[df['Player'] == player, 'Status'] = 'eliminated'
     df.loc[df['Player'] == player, 'Week 2':] = 'Eliminated'
 
 for player in eliminated_week2:
-    df.loc[df['Player'] == player, 'Week 3':] = 'Eliminated'
+    df.loc[df['Player'] == player, 'Week 3':] = 'Eliminated' '''
 
 # Save the updated DataFrame back to the CSV
 df.to_csv(csv_file_path, index=False)
