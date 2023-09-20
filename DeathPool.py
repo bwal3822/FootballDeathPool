@@ -214,15 +214,16 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
    print(player_list_df.columns)'''
-current_week = 2 # Change to current week
+current_week = 2  # or whatever the current week is
+check_elimination(player_list_df, weekly_game_outcome_df, current_week)
 
 # Call check_elimination
 updated_player_list_df = check_elimination\
     (player_list_df, weekly_game_outcome_df, current_week)
 # Test the function with some sample game outcomes for Week 3
 # Assuming Rams won and Bills lost in Week 3
-sample_game_outcomes_week3 = {'Rams': 'Win', 'Bills': 'Lose'}
-check_elimination(3, sample_game_outcomes_week3)
+#sample_game_outcomes_week3 = {'Rams': 'Win', 'Bills': 'Lose'}
+#check_elimination(3, sample_game_outcomes_week3)
 
 # Show the first few lines of the updated CSV to confirm the eliminations
 pd.read_csv(csv_file_path).head(10)
