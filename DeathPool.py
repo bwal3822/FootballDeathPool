@@ -9,7 +9,7 @@ csv_file_path = './data/FootballDeathPool.csv'
 player_list_path = './data/PlayerList.xlsx'
 player_list_df = pd.read_excel(player_list_path)
 # Initialize the pool
-def initialize_pool():
+def initialize_pool(weeks):
     if not os.path.exists(csv_file_path):
         with open(csv_file_path, 'w', newline='') as csvfile:
             csvwriter = csv.writer(csvfile)
