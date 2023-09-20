@@ -9,13 +9,13 @@ csv_file_path = './data/FootballDeathPool.csv'
 player_list_path = './data/PlayerList.xlsx'
 player_list_df = pd.read_excel(player_list_path)
 # Initialize the pool
-def initialize_pool(weeks):
-    # Create CSV file and write headers
+def initialize_pool():
     if not os.path.exists(csv_file_path):
         with open(csv_file_path, 'w', newline='') as csvfile:
             csvwriter = csv.writer(csvfile)
-            headers = ['Player', 'Status'] + [f"Week {i+1}" for i in range(weeks)]
+            headers = ['Player', 'Status'] + [f"Week{i+1}" for i in range(18)]
             csvwriter.writerow(headers)
+
 
 # Assuming an 18-week NFL season
 initialize_pool(18)
