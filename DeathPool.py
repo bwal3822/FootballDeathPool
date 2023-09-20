@@ -112,8 +112,8 @@ for index, row in player_list_df.iterrows():
 pd.read_csv(csv_file_path).head()
 
 # List of players eliminated in Week 1 and Week 2
-eliminated_week1 = ['Chief', 'Cochise', 'Bossman']
-eliminated_week2 = ['Big Rich', 'Redneck']
+#eliminated_week1 = ['Chief', 'Cochise', 'Bossman']
+#eliminated_week2 = ['Big Rich', 'Redneck']
 
 # Load the current CSV into a DataFrame for updating
 df = pd.read_csv(csv_file_path)
