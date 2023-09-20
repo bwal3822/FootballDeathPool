@@ -147,11 +147,14 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
                 (weekly_game_outcome_df['Team'] == player_pick)
             ]
             
+            # Check if outcome_row is empty
+            if outcome_row.empty:
+                print(f"No game data available for {player_pick} in week {current_week}. Skipping.")
+                continue
+
             # Skip if the game has not been played yet
-            if pd.isna(outcome_row['Team_Score'].values[0]) or pd.isna(outcome_row\
-                        ['Opponent_Score'].values[0]):
-                print(f"Game for {player_pick} in week {current_week} \
-                      has not been played yet. Skipping.")
+            if pd.isna(outcome_row['Team_Score'].values[0]) or pd.isna(outcome_row['Opponent_Score'].values[0]):
+                print(f"Game for {player_pick} in week {current_week} has not been played yet. Skipping.")
                 continue
             
             # Determine the winner based on the Team_Score and Opponent_Score
@@ -168,6 +171,7 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
             
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
+
 
 #Enter Game Results
 '''def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
