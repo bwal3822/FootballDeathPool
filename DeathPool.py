@@ -127,8 +127,45 @@ df.to_csv(csv_file_path, index=False)
 # Show the first few lines of the updated CSV to confirm the changes
 pd.read_csv(csv_file_path).head(10)
 
-#Enter Game Results
+# Read Excel into DataFrame 
+player_list_df = pd.read_excel(player_list_path)
+
+# Initialize the 'Status' column with 'Active' for all players
+player_list_df['Status'] = 'Active'
+#testing New check_elimination function
 def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
+    for index, row in player_list_df.iterrows():
+        if row['Status'] == 'Active':
+            player_pick = row[f"Week{current_week}"]
+            outcome_row = weekly_game_outcome_df[
+                (weekly_game_outcome_df['Week'] == current_week) & 
+                (weekly_game_outcome_df['Team'] == player_pick)
+            ]
+            
+            # Skip if the game has not been played yet
+            if pd.isna(outcome_row['Team_Score'].values[0]) or pd.isna(outcome_row\
+                        ['Opponent_Score'].values[0]):
+                print(f"Game for {player_pick} in week {current_week} \
+                      has not been played yet. Skipping.")
+                continue
+            
+            # Determine the winner based on the Team_Score and Opponent_Score
+            team_score = outcome_row['Team_Score'].values[0]
+            opponent_score = outcome_row['Opponent_Score'].values[0]
+            
+            if team_score > opponent_score:
+                continue  # Player moves to the next week
+            else:
+                player_list_df.at[index, 'Status'] = 'Eliminated'
+                print(f"Player {row['Player']} is eliminated.")
+        else:
+            print(f"Player {row['Player']} is already eliminated. Skipping.")
+            
+    player_list_df.to_csv(csv_file_path, index=False)
+    return player_list_df
+
+#Enter Game Results
+'''def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     # Inside check_elimination function
    
    for index, row in player_list_df.iterrows():
@@ -164,7 +201,7 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
-   print(player_list_df.columns)
+   print(player_list_df.columns)'''
 current_week = 2 # Change to current week
 
 # Call check_elimination
