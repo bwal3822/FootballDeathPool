@@ -128,9 +128,11 @@ player_list_df['Status'] = 'Active'
 #testing New check_elimination function
 def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     for week in range(1, current_week + 1):
+        print(f"Checking eliminations for week {week}")  # Debugging line
         for index, row in player_list_df.iterrows():
             if row['Status'] == 'Active':
                 player_pick = row[f"Week{week}"]
+                print(f"Checking for player {row['Player']} who picked {player_pick}")  # Debugging line
                 
                 # Check if the game has been played
                 outcome_row = weekly_game_outcome_df[
@@ -152,6 +154,7 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
                 opponent_score = outcome_row['Opponent_Score'].values[0]
                 
                 if team_score > opponent_score:
+                    print(f"Player {row['Player']} survives.")  # Debugging line
                     continue  # Player moves to the next week
                 else:
                     player_list_df.at[index, 'Status'] = 'Eliminated'
@@ -162,7 +165,7 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
 
-current_week = 2  # or whatever the current week is
+current_week = 3  # or whatever the current week is
 check_elimination(player_list_df, weekly_game_outcome_df, current_week)
 
 # Call check_elimination
