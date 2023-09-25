@@ -208,6 +208,24 @@ def display_current_status():
 # Test the function to display the current status of all players in the pool
 display_current_status().head(10)
 
+def update_player_list_status():
+    # Read the current status from FootballDeathPool.csv
+    current_status_df = pd.read_csv(csv_file_path)
+    
+    # Create a dictionary from the DataFrame for quick look-up
+    status_dict = dict(zip(current_status_df['Player'], current_status_df['Status']))
+    
+    # Read the PlayerList.xlsx into a DataFrame
+    player_list_df = pd.read_excel(player_list_path)
+    
+    # Update the 'Status' column in player_list_df
+    player_list_df['Status'] = player_list_df['Player'].map(status_dict).fillna('Active')
+    
+    # Write the updated DataFrame back into PlayerList.xlsx
+    player_list_df.to_excel(player_list_path, index=False)
+
+# Call the function to update the status
+update_player_list_status()
 
 #Show Picks of all players for all weeks
 
