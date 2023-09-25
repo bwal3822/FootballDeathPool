@@ -1,13 +1,13 @@
 Player,Status,Week1,Week2,Week3,Week4,Week5,Week6,Week7,Week8,Week9,Week10,Week11,Week12,Week13,Week14,Week15,Week16,Week17,Week18
-Jim,Active,Ravens,Bills,49ers,,,,,,,,,,,,,,,
-Peter,Active,Ravens,Cowboys,Dolphins,,,,,,,,,,,,,,,
-Big Rich,Eliminated,Ravens,Lions,,,,,,,,,,,,,,,,
-BossLady,Active,Ravens,Eagles,Packers,,,,,,,,,,,,,,,
-Redneck,Eliminated,Eagles,Lions,,,,,,,,,,,,,,,,
-BudFox,Eliminated,49ers,Cowboys,Ravens,,,,,,,,,,,,,,,
-Danny,Eliminated,49ers,Eagles,Ravens,,,,,,,,,,,,,,,
-Cheesehead,Active,Commanders,Giants,Chiefs,,,,,,,,,,,,,,,
-Smyka ,Eliminated,Commanders,Cowboys,Jaguars,,,,,,,,,,,,,,,
-Chief,Eliminated,Bengals,Eliminated,,,,,,,,,,,,,,,,
-Cochise,Eliminated,Chiefs,Eliminated,,,,,,,,,,,,,,,,
-Bossman,Eliminated,Seahawks,Eliminated,,,,,,,,,,,,,,,,
+Jim,Active,Ravens,Bills,49ers,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Peter,Active,Ravens,Cowboys,Dolphins,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Big Rich,Eliminated,Ravens,Lions,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+BossLady,Active,Ravens,Eagles,Packers,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Redneck,Eliminated,Eagles,Lions,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+BudFox,Active,49ers,Cowboys,Ravens,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Danny,Active,49ers,Eagles,Ravens,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Cheesehead,Active,Commanders,Giants,Chiefs,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Smyka ,Active,Commanders,Cowboys,Jaguars,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Chief,Eliminated,Bengals,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Cochise,Eliminated,Chiefs,Eliminated,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Bossman,Eliminated,Seahawks,Eliminated,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
