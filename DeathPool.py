@@ -168,9 +168,6 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
 current_week = 3  # or whatever the current week is
 check_elimination(player_list_df, weekly_game_outcome_df, current_week)
 
-# Call check_elimination
-updated_player_list_df = check_elimination\
-    (player_list_df, weekly_game_outcome_df, current_week)
 
 # Show the first few lines of the updated CSV to confirm the eliminations
 pd.read_csv(csv_file_path).head(10)
