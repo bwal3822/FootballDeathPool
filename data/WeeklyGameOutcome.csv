@@ -89,7 +89,7 @@
 3,Cardinals,28,Cowboys,16
 3,Steelers,23,Raiders,18
 3,Raiders,18,Steelers,23
-3,Eagles,,Buccaneers,
-3,Buccaneers,,Eagles,
-3,Rams,,Bengals,
-3,Bengals,,Rams,
+3,Eagles,25,Buccaneers,11
+3,Buccaneers,11,Eagles,25
+3,Rams,16,Bengals,19
+3,Bengals,19,Rams,16

@@ -161,17 +161,16 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
                     print(f"Player {row['Player']} is eliminated.")
             else:
                 print(f"Player {row['Player']} is already eliminated. Skipping.")
-                for future_week in range(week, current_week + 1): #Update future weeks to Eliminated
-                    player_list_df.at[index, f"Week{future_week}"] = 'Eliminated'
-                for week in range(current_week + 1, 19):  # Update playerlist Eliminated
-                    for index, row in player_list_df.iterrows():
-                        if row['Status'] == 'Eliminated':
-                            player_list_df.at[index, f"Week{week}"] = 'Eliminated'
-                        else:
-                # Keep the existing pick or leave it empty if the player is still active
-                            continue
+                
+    # Update future weeks to "Eliminated" for players already eliminated
+    for week in range(current_week + 1, 19):
+        for index, row in player_list_df.iterrows():
+            if row['Status'] == 'Eliminated':
+                player_list_df.at[index, f"Week{week}"] = 'Eliminated'
+    
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
+
 
 current_week = 3  # or whatever the current week is
 check_elimination(player_list_df, weekly_game_outcome_df, current_week)
