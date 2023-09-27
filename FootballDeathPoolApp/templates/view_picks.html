@@ -1,27 +1,36 @@
 {% extends 'base.html' %}
 
+{% block title %}
+  View Picks
+{% endblock %}
+
 {% block content %}
-    <h1>View Picks of All Players</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Player</th>
-                <th>Week 1</th>
-                <th>Week 2</th>
-                <th>Week 3</th>
-                <!-- Add more weeks as needed -->
-            </tr>
-        </thead>
-        <tbody>
-            {% for player in players_picks %}
-                <tr>
-                    <td>{{ player['Player'] }}</td>
-                    <td>{{ player['Week1'] }}</td>
-                    <td>{{ player['Week2'] }}</td>
-                    <td>{{ player['Week3'] }}</td>
-                    <!-- Add more weeks as needed -->
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <h1>View Player Picks</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        {% for week in range(1, 19) %}
+          <th>Week {{ week }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for player, picks in players_picks.items() %}
+        <tr>
+          <td>{{ player }}</td>
+          {% for week in range(1, 19) %}
+            <td>
+              {% if picks[week] is defined %}
+                {{ picks[week] }}
+              {% else %}
+                N/A
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

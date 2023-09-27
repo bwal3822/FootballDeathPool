@@ -1,0 +1,65 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+/* Header img */
+    header img {
+        width: 100%;
+        height: auto
+        object-fit: cover;
+    }  
+  /* Add a background color and some padding to the page */
+  body {
+    background-color: #f4f4f4;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style headers */
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  /* Add some breathing room between text elements */
+  p, ul, li {
+    margin-bottom: 20px;
+  }
+  
+  /* Style links */
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Add a container to center content */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  /* Add some basic styling to tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  

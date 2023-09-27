@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Football DeathPool 2023</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-    <h1>Will you survive?</h1>
-   
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block content %}
+  <h1>Welcome to the Football Death Pool!</h1>
+  <p>Make your picks and see if you can survive until the end of the season.</p>
+  <a href="{{ url_for('players') }}" class="btn btn-primary">View Players</a>
+  <a href="{{ url_for('status') }}" class="btn btn-secondary">View Status</a>
+{% endblock %}

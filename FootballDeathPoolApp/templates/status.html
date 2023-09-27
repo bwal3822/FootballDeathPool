@@ -1,13 +1,25 @@
-<!-- templates/status.html -->
-<head><h1>Player Status</h1>
-    <link rel="shortcut icon" href="./favicon.ico">"></head><h1>Player Status</h1>
-</head>
-<form action="/check-elimination" method="post">
-    <button type="submit">Check Eliminations</button>
-</form>
+{% extends 'base.html' %}
 
-<ul>
-{% for player, status in player_status.items() %}
-    <li>{{ player }}: {{ status }}</li>
-{% endfor %}
-</ul>
+{% block title %}
+  Player Status
+{% endblock %}
+
+{% block content %}
+  <h1>Player Status</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player, status in player_status.items() %}
+        <tr>
+          <td>{{ player }}</td>
+          <td>{{ status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

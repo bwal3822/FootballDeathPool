@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Football Death Pool{% endblock %}</title>
+  <meta charset="UTF-8">
+  <title>Football Death Pool</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-
+  <div class="container">
     <header>
-        <!-- Add common header elements here -->
+      <img src="{{ url_for('static', filename='header.png') }}" alt="Header Image">
+      <h1>Football Death Pool</h1>
     </header>
-
     <nav>
-        <!-- Add navigation elements here -->
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('players') }}">Players</a></li>
+        <li><a href="{{ url_for('pool_status') }}">Pool Status</a></li>
+        <li><a href="{{ url_for('status') }}">Status</a></li>
+        <li><a href="{{ url_for('view_picks') }}">View Picks</a></li>
+      </ul>
     </nav>
-
     <main>
-        {% block content %}
-        <!-- Content will go here -->
-        {% endblock %}
+      {% block content %}{% endblock %}
     </main>
-
-    <footer>
-        <!-- Add common footer elements here -->
-    </footer>
-
+  </div>
 </body>
 </html>

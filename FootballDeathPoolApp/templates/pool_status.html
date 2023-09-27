@@ -1,32 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pool Status</title>
-  
-</head>
-<body>
-    <h1>Pool Status</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Player</th>
-                <th>Status</th>
-                <th>Week 1 Pick</th>
-                <th>Week 2 Pick</th>
-                <!-- Add more columns for additional weeks -->
-            </tr>
-        </thead>
-        <tbody>
-            {% for player in players %}
-            <tr>
-                <td>{{ player['Player'] }}</td>
-                <td>{{ player['Status'] }}</td>
-                <td>{{ player['Week1'] }}</td>
-                <td>{{ player['Week2'] }}</td>
-                <!-- Add more cells for additional weeks -->
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+  Pool Status
+{% endblock %}
+
+{% block content %}
+  <h1>Pool Status</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Status</th>
+        <th>Week 1</th>
+        <th>Week 2</th>
+        <!-- Add more week columns as needed -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in players %}
+        <tr>
+          <td>{{ player['Player'] }}</td>
+          <td>{{ player['Status'] }}</td>
+          <td>{{ player['Week1'] }}</td>
+          <td>{{ player['Week2'] }}</td>
+          <!-- Add more week columns as needed -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
