@@ -29,6 +29,13 @@ def check_elimination_route():
     # update the FootballDeathPool.csv and PlayerList.xlsx files here
     
     return 'Checked for eliminations.'
+@app.route('/pool_status')
+def pool_status():
+    player_list_df = pd.read_excel('../data/PlayerList.xlsx')
 
+    #Convert Dataframe to dictionary
+    player_dict = player_list_df.to_dict('records')
+
+    return render_template('pool_status.html', players=player_dict)
 if __name__ == '__main__':
     app.run(debug=True)

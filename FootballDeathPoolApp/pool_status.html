@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pool Status</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <h1>Pool Status</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Status</th>
+                <th>Week 1 Pick</th>
+                <th>Week 2 Pick</th>
+                <!-- Add more columns for additional weeks -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+            <tr>
+                <td>{{ player['Player'] }}</td>
+                <td>{{ player['Status'] }}</td>
+                <td>{{ player['Week1'] }}</td>
+                <td>{{ player['Week2'] }}</td>
+                <!-- Add more cells for additional weeks -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
