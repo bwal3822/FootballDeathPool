@@ -4,9 +4,9 @@ import csv
 import os
 import pandas as pd
 
-# Initialize file path
-csv_file_path = './data/FootballDeathPool.csv'
-player_list_path = './data/PlayerList.xlsx'
+# Initialize file path Changed from original to match my file structure
+csv_file_path = '../data/FootballDeathPool.csv'
+player_list_path = '../data/PlayerList.xlsx'
 player_list_df = pd.read_excel(player_list_path)
 # Initialize the pool
 def initialize_pool(weeks):
@@ -20,11 +20,11 @@ def initialize_pool(weeks):
 # Assuming an 18-week NFL season
 initialize_pool(18)
 
-# Weekly Game Outcome Path
-weely_outcome_file_path = './data/WeeklyGameOutcome.csv'
+# Weekly Game Outcome Path Changed from original to match my file structure
+weely_outcome_file_path = '../data/WeeklyGameOutcome.csv'
 
-# Initialize or load weekly_game_outcome_df
-weekly_game_outcome_df = pd.read_csv('./data/WeeklyGameOutcome.csv')
+# Initialize or load weekly_game_outcome_df Changed from original to match my file structure
+weekly_game_outcome_df = pd.read_csv('../data/WeeklyGameOutcome.csv')
 
 # Show the first few lines of the initialized CSV to confirm its structure
 pd.read_csv(csv_file_path).head()
@@ -181,8 +181,8 @@ pd.read_csv(csv_file_path).head(10)
 
 #Player Eliminated
 
-#Initialize WeeklyGameOutcome.csv with headers
-weekly_game_outcome_csv_file_path = './data/WeeklyGameOutcome.csv'
+#Initialize WeeklyGameOutcome.csv with headers Changed from original to match my file structure
+weekly_game_outcome_csv_file_path = '../data/WeeklyGameOutcome.csv'
 
 def initialize_weekly_outcome():
     print("Initializing weekly outcome...")  # Debugging print statement
