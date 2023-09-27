@@ -1,0 +1,10 @@
+# .gitignore
+
+# Exclude the virtual environment
+venv/
+
+# Exclude other unwanted files
+*.pyc
+*.pyo
+*.swp
+__pycache__/

@@ -1,0 +1,7 @@
+<!-- templates/status.html -->
+<h1>Player Status</h1>
+<ul>
+{% for player, status in player_status.items() %}
+    <li>{{ player }}: {{ status }}</li>
+{% endfor %}
+</ul>
