@@ -17,18 +17,26 @@
       </tr>
     </thead>
     <tbody>
-      {% for player, picks in players_picks.items() %}
+        {% for player, data in players_picks.items() %}
         <tr>
           <td>{{ player }}</td>
           {% for week in range(1, 19) %}
             <td>
-              {% if picks[week] is defined %}
-                {{ picks[week] }}
+              {% set pick = data['Picks'][f"Week{week}"] %}
+              {% if pick == "N/A" %}
+                {% if data['Status'] == 'Active' %}
+                  &nbsp;  {# Empty cell for future picks #}
+                {% else %}
+                  {{ pick }}  {# Should already be 'DiedWeekX' for eliminated players #}
+                {% endif %}
               {% else %}
-                N/A
+                {{ pick }}
               {% endif %}
             </td>
           {% endfor %}
+        </tr>
+      {% endfor %}
+      
         </tr>
       {% endfor %}
     </tbody>

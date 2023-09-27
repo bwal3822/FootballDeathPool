@@ -6,7 +6,7 @@ body, h1, h2, h3, p, ul, li {
 /* Header img */
     header img {
         width: 100%;
-        height: auto
+        height: auto;
         object-fit: cover;
     }  
   /* Add a background color and some padding to the page */

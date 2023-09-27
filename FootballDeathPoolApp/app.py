@@ -44,8 +44,19 @@ def view_picks():
     player_picks_dict = {}
     for index, row in player_list_df.iterrows():
         player_name = row['Player']
-        player_picks = row.drop('Player').to_dict()
-        player_picks_dict[player_name] = player_picks
+        status = row['Status']
+        player_picks = row.drop(['Player', 'Status']).apply(lambda x: x if pd.notna(x) else 'N/A').to_dict()
+    
+    # Note the week of elimination if the player is eliminated
+    if status == 'Eliminated':
+        for week in range(1, 19):
+            if player_picks[f"Week{week}"] == 'N/A':
+                player_picks[f"Week{week}"] = f"DiedWeek{week - 1}"
+                break
+    
+    player_picks_dict[player_name] = {'Status': status, 'Picks': player_picks}
+
+    print(player_picks_dict) #Debug
     return render_template('view_picks.html', players_picks=player_picks_dict)
 
 
