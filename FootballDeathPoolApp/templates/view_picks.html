@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>View Picks of All Players</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Week 1</th>
+                <th>Week 2</th>
+                <th>Week 3</th>
+                <!-- Add more weeks as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players_picks %}
+                <tr>
+                    <td>{{ player['Player'] }}</td>
+                    <td>{{ player['Week1'] }}</td>
+                    <td>{{ player['Week2'] }}</td>
+                    <td>{{ player['Week3'] }}</td>
+                    <!-- Add more weeks as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

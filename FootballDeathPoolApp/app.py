@@ -37,5 +37,13 @@ def pool_status():
     player_dict = player_list_df.to_dict('records')
 
     return render_template('pool_status.html', players=player_dict)
+
+@app.route('/view_picks')
+def view_picks():
+    player_list_df = pd.read_excel('../data/PlayerList.xlsx')
+    player_picks_dict = player_list_df.to_dict('records')
+    return render_template('view_picks.html', players_picks=player_picks_dict)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
