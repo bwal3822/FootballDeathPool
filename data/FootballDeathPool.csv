@@ -1,13 +1,13 @@
-Player,Status,Week1,Week2,Week3,Week4,Week5,Week6,Week7,Week8,Week9,Week10,Week11,Week12,Week13,Week14,Week15,Week16,Week17,Week18
-Jim,Active,Ravens,Bills,49ers,,,,,,,,,,,,,,,
-Peter,Active,Ravens,Cowboys,Dolphins,,,,,,,,,,,,,,,
-Big Rich,Eliminated,Ravens,Lions,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-BossLady,Active,Ravens,Eagles,Packers,,,,,,,,,,,,,,,
-Redneck,Eliminated,Eagles,Lions,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-BudFox,Eliminated,49ers,Cowboys,Ravens,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-Danny,Eliminated,49ers,Eagles,Ravens,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-Cheesehead,Active,Commanders,Giants,Chiefs,,,,,,,,,,,,,,,
-Smyka ,Eliminated,Commanders,Cowboys,Jaguars,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-Chief,Eliminated,Bengals,Eliminated,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-Cochise,Eliminated,Chiefs,Eliminated,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
-Bossman,Eliminated,Seahawks,Eliminated,,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated,Eliminated
+Player,Status,Week1,Week2,Week3,Week4,Week5,Week6,Week7,Week8,Week9,Week10,Week11,Week12,Week13,Week14,Week15,Week16,Week17,Week18,EliminationWeek
+Jim,Active,Ravens,Bills,49ers,,,,,,,,,,,,,,,,0
+Peter,Active,Ravens,Cowboys,Dolphins,,,,,,,,,,,,,,,,0
+Big Rich,Eliminated,Ravens,Lions,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,2
+BossLady,Active,Ravens,Eagles,Packers,,,,,,,,,,,,,,,,0
+Redneck,Eliminated,Eagles,Lions,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,DiedWeek2,2
+BudFox,Eliminated,49ers,Cowboys,Ravens,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,3
+Danny,Eliminated,49ers,Eagles,Ravens,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,3
+Cheesehead,Active,Commanders,Giants,Chiefs,,,,,,,,,,,,,,,,0
+Smyka ,Eliminated,Commanders,Cowboys,Jaguars,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,DiedWeek3,3
+Chief,Eliminated,Bengals,Eliminated,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,1
+Cochise,Eliminated,Chiefs,Eliminated,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,1
+Bossman,Eliminated,Seahawks,Eliminated,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,DiedWeek1,1
