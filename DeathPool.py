@@ -127,6 +127,10 @@ player_list_df = pd.read_excel(player_list_path)
 player_list_df['Status'] = 'Active'
 #testing New check_elimination function
 def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
+    # Initialize the 'EliminationWeek' column if it's not already there
+    if 'EliminationWeek' not in player_list_df.columns:
+        player_list_df['EliminationWeek'] = 0
+
     for week in range(1, current_week + 1):
         print(f"Checking eliminations for week {week}")  # Debugging line
         for index, row in player_list_df.iterrows():
@@ -158,18 +162,22 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
                     continue  # Player moves to the next week
                 else:
                     player_list_df.at[index, 'Status'] = 'Eliminated'
+                    player_list_df.at[index, 'EliminationWeek'] = week  # Record the week of elimination
                     print(f"Player {row['Player']} is eliminated.")
             else:
                 print(f"Player {row['Player']} is already eliminated. Skipping.")
-                
-    # Update future weeks to "Eliminated" for players already eliminated
-    for week in range(current_week + 1, 19):
-        for index, row in player_list_df.iterrows():
-            if row['Status'] == 'Eliminated':
-                player_list_df.at[index, f"Week{week}"] = 'Eliminated'
+
+    # Replace 'nan' with 'DiedWeekX' for eliminated players
+    for index, row in player_list_df.iterrows():
+        if row['Status'] == 'Eliminated':
+            elimination_week = row['EliminationWeek']
+            for week_column in [f"Week{i}" for i in range(1, 19)]:
+                if pd.isna(row[week_column]):
+                    player_list_df.at[index, week_column] = f'DiedWeek{elimination_week}'
     
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
+
 
 
 current_week = 3  # or whatever the current week is

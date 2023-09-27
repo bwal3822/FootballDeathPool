@@ -30,33 +30,6 @@ weekly_game_outcome_df = pd.read_csv('../data/WeeklyGameOutcome.csv')
 pd.read_csv(csv_file_path).head()
 
 
-#Enter Player Names player_pool locked for 2023season uncomment next year to add players
-#def add_player(player_name):
-
-#    with open(csv_file_path, 'a', newline='') as csvfile:
-
-#        csvwriter = csv.writer(csvfile)
-
-        # Set status as "active" when adding a new player
-
-  #      csvwriter.writerow([player_name, 'active'] + ['' for _ in range(18)])
-
-
-
-# Add a couple of sample players to demonstrate
-
-#add_player('Player1')
-
-#add_player('Player2')
-
-
-
-# Show the first few lines of the CSV to confirm players have been added
-
-#pd.read_csv(csv_file_path).head()
-
-#Add existiong players to the pool
-
 # First, check the actual number of columns in the DataFrame
 num_columns = len(player_list_df.columns)
 
@@ -127,6 +100,10 @@ player_list_df = pd.read_excel(player_list_path)
 player_list_df['Status'] = 'Active'
 #testing New check_elimination function
 def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
+    # Initialize the 'EliminationWeek' column if it's not already there
+    if 'EliminationWeek' not in player_list_df.columns:
+        player_list_df['EliminationWeek'] = 0
+
     for week in range(1, current_week + 1):
         print(f"Checking eliminations for week {week}")  # Debugging line
         for index, row in player_list_df.iterrows():
@@ -158,18 +135,22 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
                     continue  # Player moves to the next week
                 else:
                     player_list_df.at[index, 'Status'] = 'Eliminated'
+                    player_list_df.at[index, 'EliminationWeek'] = week  # Record the week of elimination
                     print(f"Player {row['Player']} is eliminated.")
             else:
                 print(f"Player {row['Player']} is already eliminated. Skipping.")
-                
-    # Update future weeks to "Eliminated" for players already eliminated
-    for week in range(current_week + 1, 19):
-        for index, row in player_list_df.iterrows():
-            if row['Status'] == 'Eliminated':
-                player_list_df.at[index, f"Week{week}"] = 'Eliminated'
+
+    # Replace 'nan' with 'DiedWeekX' for eliminated players
+    for index, row in player_list_df.iterrows():
+        if row['Status'] == 'Eliminated':
+            elimination_week = row['EliminationWeek']
+            for week_column in [f"Week{i}" for i in range(1, 19)]:
+                if pd.isna(row[week_column]):
+                    player_list_df.at[index, week_column] = f'DiedWeek{elimination_week}'
     
     player_list_df.to_csv(csv_file_path, index=False)
     return player_list_df
+
 
 
 current_week = 3  # or whatever the current week is
