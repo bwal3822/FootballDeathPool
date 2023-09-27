@@ -1,5 +1,10 @@
 <!-- templates/status.html -->
 <h1>Player Status</h1>
+
+<form action="/check-elimination" method="post">
+    <button type="submit">Check Eliminations</button>
+</form>
+
 <ul>
 {% for player, status in player_status.items() %}
     <li>{{ player }}: {{ status }}</li>
