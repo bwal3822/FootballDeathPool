@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Players</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-    <h1>Players and Their Status</h1>
-    <!-- Your player data would go here -->
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Player List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in players %}
+      <tr>
+        <td>{{ player['Player'] }}</td>
+        <td>{{ player['Status'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
