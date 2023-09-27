@@ -3,7 +3,7 @@
 import csv
 import os
 import pandas as pd
-import numpy as np
+
 # Initialize file path
 csv_file_path = './data/FootballDeathPool.csv'
 player_list_path = './data/PlayerList.xlsx'
