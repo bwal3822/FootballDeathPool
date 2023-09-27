@@ -25,7 +25,7 @@ def check_elimination_route():
     weekly_game_outcome_df = pd.read_csv('../data/WeeklyGameOutcome.csv')
     current_week = 3  # This could be dynamic based on the actual current week
     updated_player_list_df = check_elimination(player_list_df, weekly_game_outcome_df, current_week)
-    
+    updated_player_list_df.to_csv('../data/FootballDeathPool.csv', index=False)
     # update the FootballDeathPool.csv and PlayerList.xlsx files here
     
     return 'Checked for eliminations.'
