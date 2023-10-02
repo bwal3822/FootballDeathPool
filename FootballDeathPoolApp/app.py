@@ -6,24 +6,29 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Logic 
-    active_players = [
-        {'Player': 'Alice', 'Status': 'Active'},
-        {'Player': 'Charlie', 'Status': 'Active'},
-        # ... more players
-    ]
-    return render_template('index.html', active_players=active_players)
+    # Read the player data from the Excel file
+    player_list_df = pd.read_excel('../data/PlayerList.xlsx')
+    
+    # Filter the DataFrame to get only the active players
+    active_players_df = player_list_df[player_list_df['Status'] == 'Active']
+    
+    # Convert the DataFrame to a dictionary
+    active_players_dict = active_players_df[['Player', 'Status']].to_dict('records')
+    
+    return render_template('index.html', active_players=active_players_dict)
+
 
 
 @app.route('/players')
 def players():
-    # Logic 
-    players_data = [
-        {'Player': 'Alice', 'Status': 'Active'},
-        {'Player': 'Bob', 'Status': 'Eliminated'},
-        # ... more players
-    ]
-    return render_template('players.html', players=players_data)
+    # Read the player data from the Excel file
+    player_list_df = pd.read_excel('../data/PlayerList.xlsx')
+    
+    # Convert the DataFrame to a dictionary
+    players_dict = player_list_df[['Player', 'Status']].to_dict('records')
+    
+    return render_template('players.html', players=players_dict)
+
 
 
 @app.route('/status')
