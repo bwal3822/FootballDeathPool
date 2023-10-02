@@ -6,11 +6,25 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Logic 
+    active_players = [
+        {'Player': 'Alice', 'Status': 'Active'},
+        {'Player': 'Charlie', 'Status': 'Active'},
+        # ... more players
+    ]
+    return render_template('index.html', active_players=active_players)
+
 
 @app.route('/players')
 def players():
-    return render_template('players.html')
+    # Logic 
+    players_data = [
+        {'Player': 'Alice', 'Status': 'Active'},
+        {'Player': 'Bob', 'Status': 'Eliminated'},
+        # ... more players
+    ]
+    return render_template('players.html', players=players_data)
+
 
 @app.route('/status')
 def status():
@@ -23,7 +37,7 @@ def status():
 def check_elimination_route():
     player_list_df = pd.read_excel('../data/PlayerList.xlsx')
     weekly_game_outcome_df = pd.read_csv('../data/WeeklyGameOutcome.csv')
-    current_week = 3  # This could be dynamic based on the actual current week
+    current_week = 3  # In future, make dynamic
     updated_player_list_df = check_elimination(player_list_df, weekly_game_outcome_df, current_week)
     updated_player_list_df.to_csv('../data/FootballDeathPool.csv', index=False)
     # update the FootballDeathPool.csv and PlayerList.xlsx files here

@@ -5,8 +5,12 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Welcome to the  DeathPool!</h1>
+  <h1>Welcome to the DeathPool!</h1>
   <p>Make your picks and see if you can survive until the end of the season.</p>
-  <a href="{{ url_for('players') }}" class="btn btn-primary">View Players</a>
-  <a href="{{ url_for('status') }}" class="btn btn-secondary">View Status</a>
+  <h2>Active Players:</h2>
+  <ul>
+    {% for player in active_players %}
+      <li>{{ player['Player'] }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}

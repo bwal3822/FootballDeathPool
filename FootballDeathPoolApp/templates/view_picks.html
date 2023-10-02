@@ -22,8 +22,8 @@
           <td>{{ player }}</td>
           {% for week in range(1, 19) %}
             <td>
-              {% set pick = data['Picks'][f"Week{week}"] %}
-              {% if pick == "N/A" %}
+                {% set pick = data['Picks']['Week' ~ week] %}
+                {% if pick == "N/A" %}
                 {% if data['Status'] == 'Active' %}
                   &nbsp;  {# Empty cell for future picks #}
                 {% else %}
