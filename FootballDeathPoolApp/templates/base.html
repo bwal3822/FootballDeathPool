@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Football Death Pool</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta charset="UTF-8">
+    <title>{% block title %}DeathPool{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-  <div class="container">
     <header>
-      <img src="{{ url_for('static', filename='header.png') }}" alt="Header Image">
-      <h1>Football Death Pool</h1>
+        <img src="{{ url_for('static', filename='header.png') }}" alt="DeathPool Header">
     </header>
+
     <nav>
-      <ul>
-        <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('players') }}">Players</a></li>
-        <li><a href="{{ url_for('pool_status') }}">Pool Status</a></li>
-        <li><a href="{{ url_for('status') }}">Status</a></li>
-        <li><a href="{{ url_for('view_picks') }}">View Picks</a></li>
-      </ul>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('players') }}">Players</a></li>
+            <li><a href="{{ url_for('pool_status') }}">Pool Status</a></li>
+            <li><a href="{{ url_for('status') }}">Status</a></li>
+            <li><a href="{{ url_for('view_picks') }}">View Picks</a></li>
+        </ul>
     </nav>
+
     <main>
-      {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
     </main>
-  </div>
+
+    <footer>
+        <p>DeathPool &copy; 2023</p>
+    </footer>
 </body>
 </html>

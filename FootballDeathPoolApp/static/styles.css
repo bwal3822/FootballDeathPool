@@ -1,65 +1,72 @@
 /* Reset some default browser styles */
-body, h1, h2, h3, p, ul, li {
+body, h1, h2, h3, h4, p, ul, li {
     margin: 0;
     padding: 0;
   }
-/* Header img */
-    header img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }  
-  /* Add a background color and some padding to the page */
+  
+  /* Add a background color and some padding to the body */
   body {
     background-color: #f4f4f4;
     padding: 20px;
-    font-family: Arial, sans-serif;
   }
   
-  /* Style headers */
-  h1, h2, h3 {
-    color: #333;
+  /* Style the header */
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
   }
   
-  /* Add some breathing room between text elements */
-  p, ul, li {
-    margin-bottom: 20px;
+  /* Style the nav */
+  nav ul {
+    background-color: #444;
+    overflow: hidden;
+    color: white;
   }
   
-  /* Style links */
-  a {
-    color: #007BFF;
+  nav ul li {
+    float: left;
+    display: inline;
+    padding: 14px 16px;
+  }
+  
+  nav ul li a {
+    color: white;
     text-decoration: none;
   }
   
-  a:hover {
-    text-decoration: underline;
+  /* Style the main content */
+  main {
+    margin: 15px;
+    padding: 15px;
+    background-color: #fff;
   }
   
-  /* Add a container to center content */
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
+  /* Style the footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
   
-  /* Add some basic styling to tables */
-  table {
+  /* Style tables */
+  .table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  table, th, td {
+  .table th, .table td {
     border: 1px solid #ddd;
-  }
-  
-  th, td {
     padding: 8px;
     text-align: left;
   }
   
-  th {
+  .table th {
     background-color: #f2f2f2;
   }
   
