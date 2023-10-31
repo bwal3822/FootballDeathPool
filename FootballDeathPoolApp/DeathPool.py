@@ -153,7 +153,7 @@ def check_elimination(player_list_df, weekly_game_outcome_df, current_week):
 
 
 
-current_week = 3  # or whatever the current week is
+current_week = 4  # or whatever the current week is
 check_elimination(player_list_df, weekly_game_outcome_df, current_week)
 
 
